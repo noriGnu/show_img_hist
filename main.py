@@ -19,18 +19,18 @@ hist_green, _ = np.histogram(im[:, :, 1], bins=64)
 hist_blue, _ = np.histogram(im[:, :, 2], bins=64)
 hist = np.stack((hist_red, hist_green, hist_blue), axis=1)
 
-df_hist = pd.DataFrame(hist, columns=['R', 'G', 'B'])
+df_hist = pd.DataFrame(hist, columns=['R', 'Y', 'B'])
 st.bar_chart(df_hist)
 
 
 # choose one color
 color = st.radio(
-    "choose R, G, or B",
-    ('R', 'G', 'B'))
+    "choose R, Y, or B",
+    ('R', 'Y', 'B'))
 if color == 'R':
     df_hist = pd.DataFrame(hist_red)
     st.bar_chart(df_hist)
-if color == 'G':
+if color == 'Y':
     df_hist = pd.DataFrame(hist_green)
     st.bar_chart(df_hist)
 if color == 'B':
